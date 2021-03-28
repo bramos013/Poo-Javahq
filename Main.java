@@ -2,15 +2,13 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args) {
         Scanner menu = new Scanner(System.in);
+        Scanner donos = new Scanner(System.in);
         Cadastro dono = new Cadastro();
-        Dono dono1 = new Dono("Bruno", "teste@gmail.com");
-        Dono dono2 = new Dono("Bruno2", "testeiseuemail@gmail.com");
-
         
                 //Área de Teste
-                dono1.mostrarDono();
-                dono2.mostrarDono();
-                dono.listarDonos();
+                //dono1.mostrarDono();
+                //dono2.mostrarDono();
+                //donos.listarDonos();
         
         //Menu
         boolean continua = true;
@@ -28,6 +26,7 @@ public class Main{
             System.out.println("\t2 - Pesquisar HQ's por ano de lançamento");
             System.out.println("\t3 - Pesquisar HQ's por nome do dono");
             System.out.println("\t4 - Sair");
+            System.out.println("\t5 - Cadastrar Dono");
         int opt = menu.nextInt();
         switch (opt) {
             case 1:
@@ -44,6 +43,17 @@ public class Main{
             case 4:    
                 System.out.println("Que a força esteja com você jovem Padawan, Até logo!\n ");
                 continua = false;
+                break;
+            case 5:    
+                System.out.println("Informe o nome do Dono: ");
+                String nome = donos.nextLine();
+                System.out.println("Informe o email do Dono: ");
+                String email = donos.nextLine();
+                             
+                Dono novoDono = new Dono(nome, email);
+                dono .cadastraDono(novoDono);
+
+                dono.listarDonos();                
                 break;
             default:
                 System.out.print("\nOpção Inválida!\nPaciência você deve ter, meu jovem Padawan\n\n");
