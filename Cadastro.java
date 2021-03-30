@@ -1,27 +1,24 @@
 import java.util.ArrayList;
 
 public class Cadastro {
-    private String nome;
-    private RevistaQuadrinhos[] hq;
+    //private String nome;
+    //private RevistaQuadrinhos[] hq;
 
     private ArrayList<Dono> donos;
-
-
-    //Classe para testar o carregamento do Array
-    public void carregarDonos() {
-        donos.add(new Dono("João Silva", "000.000.00-00"));
-        donos.add(new Dono("João Silva", "000.000.00-00"));
-        donos.add(new Dono("João Silva", "000.000.00-00"));
-        donos.add(new Dono("João Silva", "000.000.00-00"));
-    }
-
+    private ArrayList<RevistaQuadrinhos> hqs;
+    
     public Cadastro(){
         donos = new ArrayList<>();
-        carregarDonos();
+        hqs = new ArrayList<>();
+
     }
 
     public boolean cadastraDono(Dono novoDono){
         donos.add(novoDono);
+        return true;
+    }
+    public boolean cadastraHq(RevistaQuadrinhos novoHq){
+        hqs.add(novoHq);
         return true;
     }
 
@@ -31,22 +28,26 @@ public class Cadastro {
             dono.mostrarDono();
         }
     }
+    public void listarHqs(){
+        System.out.println("Revistas Quadrinhos: ");
+        for(RevistaQuadrinhos hq : hqs){
+            hq.mostrarHq();
+        }
+    }
 
     public ArrayList<Dono> getDonos(){
-        return donos;
+        return donos;        
+    }
+    public ArrayList<RevistaQuadrinhos> getHqs(){
+        return hqs;
     }
 
     public void setDonos(ArrayList<Dono> donos){
         this.donos = donos;
     }
-    /*public static void pesquisaDonos(){
-        System.out.println("Donos: ");
-        for (Dono dono : donos){
-            dono.mostrarDono();            
-        }
-    }*/
-
-
+    public void setHqs(ArrayList<RevistaQuadrinhos> hqs){
+        this.hqs = hqs;
+    }
 
     /*Retorna uma String com todas as informações dos itens cadastrados, incluso dados do correspondente,
     Caso não tiver itens, retornar "Nenhum item cadastro"*/
@@ -56,13 +57,20 @@ public class Cadastro {
 
     /*Retorna uma String com todas as informações dos itens cadastrados, incluso dados do correspondente, a partir 
     do ano indicado. Caso não tiver itens, retornar "Nenhum item localizado com este ano"*/
-    public String pesquisa(int ano){
-        return null;
+    public void pesquisa(int ano){
+        System.out.println("Revistas lançadas no ano de: " + ano);
+            for(RevistaQuadrinhos hq : hqs){
+                if(hq.getAno() == ano)                
+                    hq.mostrarHq();                                            
+            }    
     }
 
     /*Retorna uma String com todas as informações dos itens cadastrados, incluso dados do correspondente, a partir 
     do nome indicado. Caso não tiver itens, retornar "Nenhum dono localizado com este nome"*/
-    public String pesquisa(String dono){
-        return null;
+    public void pesquisa(String dono){
+            for(RevistaQuadrinhos hq : hqs){
+                if(hq.getDonoHq().equals(dono))
+                    hq.mostrarHq();
+            }
     }
 }

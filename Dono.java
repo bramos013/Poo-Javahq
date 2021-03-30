@@ -24,9 +24,16 @@ public class Dono {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public RevistaQuadrinhos[] getHq() {
+		return hq;
+	}
+
+	public void setHq(RevistaQuadrinhos[] hq) {
+		this.hq = hq;
+	}
 
 	public void mostrarDono() {
-        System.out.println("Nome: " + nome + ", Email: " + email);
+        System.out.println("Nome: " + nome + ", Email: " + email + "Revista: " + hq);
     }  
 	
 }
