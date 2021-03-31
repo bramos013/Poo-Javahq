@@ -33,7 +33,7 @@ public class Dono {
 	}
 
 	public void mostrarDono() {
-        System.out.println("Nome: " + nome + ", Email: " + email + "Revista: " + hq);
+        System.out.println("Nome: " + nome + ", Email: " + email);
     }  
 	
 }
