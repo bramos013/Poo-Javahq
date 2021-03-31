@@ -1,16 +1,34 @@
 import java.util.ArrayList;
 
 public class Cadastro {
-    //private String nome;
-    //private RevistaQuadrinhos[] hq;
+    private String nome;
+    private RevistaQuadrinhos[] hq;
 
     private ArrayList<Dono> donos;
     private ArrayList<RevistaQuadrinhos> hqs;
     
     public Cadastro(){
         donos = new ArrayList<>();
+            carregarDonos();
         hqs = new ArrayList<>();
+            carregarHqs();
 
+    }
+
+    public void carregarDonos(){
+        donos.add(new Dono("Benicio","benicio@gmail.com"));
+        donos.add(new Dono("Carol","carol@gmail.com"));
+        donos.add(new Dono("Douglas","doug@gmail.com"));
+        donos.add(new Dono("Marina","marimm@gmail.com"));
+        donos.add(new Dono("Pedro","pedro@hotmail.com"));
+        donos.add(new Dono("Sebastião","sebastiano@gmail.com"));
+    }
+    public void carregarHqs(){
+        hqs.add(new RevistaQuadrinhos("A Queda do Morcego","DC","Batman",2011,"Pedro"));
+        hqs.add(new RevistaQuadrinhos("Vivo ou Morto","Marvel","DeadPool",2020,"Sebastião"));
+        hqs.add(new RevistaQuadrinhos("Lendas do Homem de Aço","DC","Superman",1998,"Carol"));
+        hqs.add(new RevistaQuadrinhos("A Manopla","Marvel","Homem de Ferro",2017,"Bruno"));
+        hqs.add(new RevistaQuadrinhos("Mundo Sombrio","Marvel","Thor",2018,"Marina"));    
     }
 
     public boolean cadastraDono(Dono novoDono){
